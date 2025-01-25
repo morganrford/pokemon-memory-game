@@ -3,11 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokemon Memory Game</title>
     <link rel="stylesheet" href="stylesheet.css" />
     <script src="app.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="./assets/icon.png">
+    
+</head>
 </head>
 <body>
-    
+    <h1>Pokemon Memory Game</h1>
+    <h3>Instructions:</h3>
+    <ol>
+        <li><b>Start the Game:</b> Click "Start" to begin the game.</li>
+        <li><b>Flip Cards:</b> Click on two cards to flip them over.</li>
+        <li><b>Match Pairs:</b> Find matching pairs of cards.</li>
+        <li><b>Try Again:</b> If cards don't match, they'll flip back over after a short delay.</li>
+        <li><b>Win:</b> Complete all matches to win the game.</li>
+      </ol>
+    <h2 id="message">Message</h2>
+    <section class="board">
+        <div class="card" id="0"><img src="" alt=""></div>
+        <div class="card" id="1"><img src="" alt=""></div>
+        <div class="card" id="2"><img src="" alt=""></div>
+        <div class="card" id="3"><img src="" alt=""></div>
+        <div class="card" id="4"><img src="" alt=""></div>
+        <div class="card" id="5"><img src="" alt=""></div>
+        <div class="card" id="6"><img src="" alt=""></div>
+        <div class="card" id="7"><img src="" alt=""></div>
+        <div class="card" id="8"><img src="" alt=""></div>
+        <div class="card" id="9"><img src="" alt=""></div>
+        <div class="card" id="10"><img src="" alt=""></div>
+        <div class="card" id="11"><img src="" alt=""></div>
+        <div class="card" id="12"><img src="" alt=""></div>
+        <div class="card" id="13"><img src="" alt=""></div>
+        <div class="card" id="14"><img src="" alt=""></div>
+        <div class="card" id="15"><img src="" alt=""></div>
+    </section>
+    <section id="stats">
+        <p class="timer">Timer</p>
+        <p class="timer-number">0:00</p>
+        <p class="moves">Moves</p>
+        <p class="moves-number">0</p>
+        <p class="misses">Misses</p>
+        <p class="misses-number">0</p>
+    </section> 
+    <section id="resetbutton">
+        <button id="reset">Reset</button>
+          </section>
 </body>
 </html>
