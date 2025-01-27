@@ -1,5 +1,3 @@
-// Please read the readme as well!
-
 // Psuedocode
 
 //1 I'll define all of the required variables, leaving any empty as needed. 
@@ -28,10 +26,7 @@
 
 //////////////////////////////////////////////////////////////////////////////////////
 
-// I need to think about how the player will win or lose the game. Whether it will be time based or if it will be based on the number of correct or incorrect matches.
-
 // I need to think about whether every time you reset the game if it will show the same cards or instead, new cards from a set amount of cards. 
-
 
 
 /*-------------------------------- Constants --------------------------------*/
@@ -41,6 +36,17 @@
 /*------------------------ Cached Element References ------------------------*/
 
 /*-------------------------------- Functions --------------------------------*/
+const render = () => {
+
+}
+
+const init = () => {
+    
+}
+
+const reset = () => {
+    
+}
 
 /*----------------------------- Event Listeners -----------------------------*/
 
