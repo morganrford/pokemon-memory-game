@@ -1,18 +1,5 @@
 // Psuedocode
-
-//1 I'll define all of the required variables, leaving any empty as needed. 
-
-//2 I'll store the cached element references using getbyID.
-
-//3 I'll create the initialize game and render functions. 
-
-//4 I'll handle each instead of the player clicking a button using a handleclick function.
-
-//6 I'll code a way for the player to turn over the cards, which will change the image from the back of the pokemon card with the pokemon logo to the front with pokemon on it.
-
-//7 I'll code a way for the program to recognize when a match has been made.
-
-//8 I'll implement a way for the the player to only keep playing until the timer is up or until they have made too many incorrect matches.
+//8 I'll implement a way for the the player to only keep playing until the timer is up.
 
 //9 I'll code the message feature so that the player is able to view the current state of the game, such as whether their match was correct or incorrect, to keep going, or if they've lost.
 
@@ -28,47 +15,62 @@ const cardsArray = [
     {
         pokemon: "Alomomola",
         src: "./assets/alomomola.png",
+        id: [0, 7],
+        alt: "Alomomola Pokemon Card",
     },
     {
         pokemon: "Chansey",
         src: "./assets/chansey.jpg",
+        id: [3, 5],
+        alt: "Chansey Pokemon Card",
     },
     {   pokemon: "Clefairy",
-        src: "./assets/clefairy.png",
+        src: "./assets/clefairy.jpg",
+        id: [2, 15],
+        alt: "Clefairy Pokemon Card",
     },
     {
         pokemon: "Jigglypuff",
         src: "./assets/jigglypuff.jpg",
+        id: [4, 10],
+        alt: "Jigglypuff Pokemon Card",
     },
     {
         pokemon: "LickiTung",
         src: "./assets/lickitung.png",
+        id: [1, 9],
+        alt: "LickiTung Pokemon Card",
     },
     {
         pokemon: "Mew",
         src: "./assets/mew.png",
+        id: [6, 14],
+        alt: "Mew Pokemon Card",
     },
     {
         pokemon: "Slowpoke",
         src: "./assets/slowpoke.png",
+        id: [8, 11],
+        alt: "Slowpoke Pokemon Card",
     },
     {
         pokemon: "Snubbull",
-        src: "./assets/snubull.png",
+        src: "./assets/snubbull.png",
+        id: [12, 13],
+        alt: "Snubbull Pokemon Card",
     },
 ];
-
-
-
-
 
 /*---------------------------- Variables (state) ----------------------------*/
 let timer = 10; //seconds
 let intervalId;
 
+let flippedCards = [];
+
 /*------------------------ Cached Element References ------------------------*/
 const secondsSpan = document.getElementById('seconds')
 const messageEl = document.getElementById('message')
+const cardsList = document.querySelectorAll('.card')
 
 /*-------------------------------- Functions --------------------------------*/
 const render = () => {
@@ -76,38 +78,37 @@ const render = () => {
         clearInterval(intervalId)
     } 
     secondsSpan.textContent = timer;
-    // flipCard()
-    // handleClick()
-    // checkForMatches()
     // updateMessage()
 }
 
 const flipCard = (event) => {
-//change the src file of the card when clicked
-//can alt text be changed?
-// document.getElementById("1").src="path";
+const foundCard = cardsArray.find(card => card.id.includes(parseInt(event.target.id)))
+let foundCardElement = document.getElementById(event.target.id)
+foundCardElement.src = foundCard.src;
+foundCardElement.alt = foundCard.alt;
+flippedCards.push(foundCardElement)
+if (flippedCards.length === 2) {
+    checkForMatches()
 }
-
-const handleClick = (event) => {
-
 }
 
 const checkForMatches = (event) => {
-//     if (1st card clicked ID === 2nd card clicked ID) {
-//         change message to "You've made a match!"
-//         and leave cards flipped
-//         allow player to make next choice
-//     } else { if cards don't match
-//         flip cards back over
-//         change message to "Try again!"
-//         allow player to continue playing 
-//     }
-//     remove event listener once matched
-
-// const unamedConst = event.target.removeEventListener
+    console.log(flippedCards[0].src, flippedCards[1].src)
+    if (flippedCards[0].src === flippedCards[1].src) {
+        flippedCards[0].parentElement.removeEventListener('click', flipCard)
+        flippedCards[1].parentElement.removeEventListener('click', flipCard)
+        flippedCards = []
+    } else { 
+        setTimeout(() => {
+            flippedCards[0].src = "./assets/backofcard.png"
+            flippedCards[1].src = "./assets/backofcard.png"
+            flippedCards = []
+        }, 1000);
+    } 
 }
 
 const updateMessage = () => {
+    // set timeout?
 //  if (timer === 0 || player has not made all matches
 //     ) {
 //     messageEl.innerText = "You lose."
@@ -125,19 +126,17 @@ const init = () => {
 }
 
 const resetGame = () => {
-    
+    //reset timer
+    //show back of cards
 }
 
 init()
 
 /*----------------------------- Event Listeners -----------------------------*/
-cardsArray.forEach(element => {
-    //add event listeneres on all cards 
+cardsList.forEach(element => {
+    element.addEventListener('click', flipCard)
 });
 
 document.getElementById('reset').addEventListener('click', resetGame);
-
-
-
 
 /*-------------------------------- Graveyard --------------------------------*/
