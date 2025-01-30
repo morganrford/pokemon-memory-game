@@ -1,10 +1,3 @@
-// Psuedocode
-//10 I'll code my reset function so that the player can try again.
-
-//11 I'll make sure the render and initialize features work.
-
-//12 I'll make sure everything is running properly and that there are no errors.
-
 /*-------------------------------- Constants --------------------------------*/
 const cardsArray = [
   {
@@ -58,7 +51,7 @@ const cardsArray = [
 ];
 
 /*---------------------------- Variables (state) ----------------------------*/
-let timer = 60; //seconds
+let timer = 90; //seconds
 let intervalId;
 let flippedCards = [];
 let matchedPairs = 0;
@@ -69,7 +62,7 @@ let wasStartPressed = false;
 const secondsSpan = document.getElementById("seconds");
 const messageEl = document.getElementById("message");
 const cardsList = document.querySelectorAll(".card");
-const imagesList = document.querySelectorAll(".disabled")
+const imagesList = document.querySelectorAll(".disabled");
 
 /*-------------------------------- Functions --------------------------------*/
 const render = () => {
@@ -121,19 +114,19 @@ const updateMessage = () => {
 };
 
 const init = () => {
-    intervalId = setInterval(() => {
-        timer--;
-        render();
-    }, 1000);
+  intervalId = setInterval(() => {
+    timer--;
+    render();
+  }, 1000);
 };
 
 const resetGame = () => {
-    timer = 61;
-    clearInterval(intervalId)
+  timer = 91;
+  clearInterval(intervalId);
   init();
   imagesList.forEach((card) => {
     card.src = "./assets/backofcard.png";
-    card.classList.remove("disabled")
+    card.classList.remove("disabled");
   });
 };
 
