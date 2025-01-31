@@ -63,6 +63,7 @@ const secondsSpan = document.getElementById("seconds");
 const messageEl = document.getElementById("message");
 const cardsList = document.querySelectorAll(".card");
 const imagesList = document.querySelectorAll(".disabled");
+const buttonSound = document.getElementById("reset");
 
 /*-------------------------------- Functions --------------------------------*/
 const render = () => {
@@ -141,6 +142,9 @@ const resetGame = () => {
     card.src = "./assets/backofcard.png";
     card.classList.remove("disabled");
   });
+  const buttonSound = new Audio("./assets/pokeballsound.mp3");
+  buttonSound.volume = 0.2;
+  buttonSound.play();
 };
 
 /*----------------------------- Event Listeners -----------------------------*/

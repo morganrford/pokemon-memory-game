@@ -2,7 +2,7 @@
 
 ![Online Pokemon Memory Card Game](./assets/pokemon-screenshot.png)
 
-Link to game: [Pokemon Memory Game](https://www.google.com)
+Link to game: [Pokemon Memory Game](https://github.com/morganrford/pokemon-memory-game)
 
 Link to planning materials: [Planning Materials](https://github.com/morganrford/pokemon-memory-game/blob/main/projectplanning.md)
 
@@ -27,7 +27,6 @@ I created a memory card game using Pokemon cards. A memory card game is one wher
 
 * Add a hard-mode
 * Add an animation when a player makes a match or when they win
-* Add audio when the player starts the game or when they make a match
 
 ### Attributions:
 
@@ -39,6 +38,7 @@ The background image was taken from: [Wallpaper Cave](https://wallpapercave.com/
 
 The pink pokeball icon was taken from: [Clip Art Max](https://www.clipartmax.com/middle/m2i8N4N4N4H7m2A0_cute-pokeball-pixel-by-nikkineko3-8-bit-pokemon-sprites/)
 
+The audio sound bite was taken from: [Voicy](https://www.voicy.network/search/pokemon-sound-effects)
 
 ### Sources:
 
