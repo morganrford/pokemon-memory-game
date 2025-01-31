@@ -2,7 +2,7 @@
 
 ![Online Pokemon Memory Card Game](./assets/pokemon-screenshot.png)
 
-Link to game: [Pokemon Memory Game](https://github.com/morganrford/pokemon-memory-game)
+Link to game: [Pokemon Memory Game](https://morganrford.github.io/pokemon-memory-game/)
 
 Link to planning materials: [Planning Materials](https://github.com/morganrford/pokemon-memory-game/blob/main/projectplanning.md)
 
