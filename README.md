@@ -8,7 +8,7 @@ Link to planning materials: [Planning Materials](https://github.com/morganrford/
 
 ### About the game:
 
-Description of game and what it does. Background info about the game and why I chose it.
+I created a memory card game using Pokemon cards. A memory card game is one where you have to select two cards, and see if they're a match. You have to remember where the cards are in order to get all of the matches. This is a game I used to play often as a child, but with real cards, not on the internet. I decided to choose a Pokemon theme because it's already something that uses cards. I actually wasn't into Pokemon as a child, but I got into Pokemon GO recently because of my boyfriend. He loves Pokemon.
 
 ### Instructions:
 
@@ -26,9 +26,8 @@ Description of game and what it does. Background info about the game and why I c
 ### Planned future enhancements:
 
 * Add a hard-mode
-* Add fun extras like showing confetti on a win
-* Add audio details
-* Add animations
+* Add an animation when a player makes a match or when they win
+* Add audio when the player starts the game or when they make a match
 
 ### Attributions:
 
@@ -36,9 +35,9 @@ The image of the back of the Pokemon card was created by: [Atomic Monkey TCG on 
 
 The Pokemon cards were taken from: [Pokemon.com](https://www.pokemon.com/us/pokemon-tcg/pokemon-cards)
 
-The background image: [alt text](https://www.google.com)
+The background image was taken from: [Wallpaper Cave](https://wallpapercave.com/pink-pokemon-wallpapers)
 
-The pink pokeball: [alt text](https://www.google.com)
+The pink pokeball icon was taken from: [Clip Art Max](https://www.clipartmax.com/middle/m2i8N4N4N4H7m2A0_cute-pokeball-pixel-by-nikkineko3-8-bit-pokemon-sprites/)
 
 
 ### Sources:

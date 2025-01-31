@@ -3,49 +3,49 @@ const cardsArray = [
   {
     pokemon: "Alomomola",
     src: "./assets/alomomola.png",
-    id: [0, 7],
+    id: [],
     alt: "Alomomola Pokemon Card",
   },
   {
     pokemon: "Chansey",
     src: "./assets/chansey.jpg",
-    id: [3, 5],
+    id: [],
     alt: "Chansey Pokemon Card",
   },
   {
     pokemon: "Clefairy",
     src: "./assets/clefairy.jpg",
-    id: [2, 15],
+    id: [],
     alt: "Clefairy Pokemon Card",
   },
   {
     pokemon: "Jigglypuff",
     src: "./assets/jigglypuff.jpg",
-    id: [4, 10],
+    id: [],
     alt: "Jigglypuff Pokemon Card",
   },
   {
     pokemon: "LickiTung",
     src: "./assets/lickitung.png",
-    id: [1, 9],
+    id: [],
     alt: "LickiTung Pokemon Card",
   },
   {
     pokemon: "Mew",
     src: "./assets/mew.png",
-    id: [6, 14],
+    id: [],
     alt: "Mew Pokemon Card",
   },
   {
     pokemon: "Slowpoke",
     src: "./assets/slowpoke.png",
-    id: [8, 11],
+    id: [],
     alt: "Slowpoke Pokemon Card",
   },
   {
     pokemon: "Snubbull",
     src: "./assets/snubbull.png",
-    id: [12, 13],
+    id: [],
     alt: "Snubbull Pokemon Card",
   },
 ];
@@ -113,6 +113,18 @@ const updateMessage = () => {
   wasStartPressed = false;
 };
 
+const shuffleCards = (cards) => {
+  const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  numbersArray.sort(() => {
+    return Math.random() - 0.5;
+  });
+  console.log(numbersArray);
+  cards.forEach((card) => {
+    card.id.push(numbersArray.pop(), numbersArray.pop());
+  });
+  console.log(cards);
+};
+
 const init = () => {
   intervalId = setInterval(() => {
     timer--;
@@ -124,6 +136,7 @@ const resetGame = () => {
   timer = 91;
   clearInterval(intervalId);
   init();
+  shuffleCards(cardsArray);
   imagesList.forEach((card) => {
     card.src = "./assets/backofcard.png";
     card.classList.remove("disabled");
