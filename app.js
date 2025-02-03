@@ -122,7 +122,7 @@ const init = () => {
 const resetGame = () => {
   messageEl.innerText = "Click the cards!";
   matchedPairs = 0;
-  timer = 91;
+  timer = 90;
   shuffleCards(cardsArray);
   init();
   imagesList.forEach((card) => {
