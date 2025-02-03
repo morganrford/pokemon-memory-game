@@ -63,7 +63,6 @@ const secondsSpan = document.getElementById("seconds");
 const messageEl = document.getElementById("message");
 const cardsList = document.querySelectorAll(".card");
 const imagesList = document.querySelectorAll(".disabled");
-const buttonSound = document.getElementById("reset");
 
 /*-------------------------------- Functions --------------------------------*/
 const render = () => {
@@ -90,8 +89,8 @@ const flipCard = (event) => {
 const checkForMatches = (event) => {
   console.log(flippedCards[0].src, flippedCards[1].src);
   if (flippedCards[0].src === flippedCards[1].src) {
-    flippedCards[0].parentElement.removeEventListener("click", flipCard);
-    flippedCards[1].parentElement.removeEventListener("click", flipCard);
+    // flippedCards[0].parentElement.removeEventListener("click", flipCard);
+    // flippedCards[1].parentElement.removeEventListener("click", flipCard);
     flippedCards = [];
     matchedPairs++;
   } else {
@@ -114,19 +113,8 @@ const updateMessage = () => {
   wasStartPressed = false;
 };
 
-const shuffleCards = (cards) => {
-  const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-  numbersArray.sort(() => {
-    return Math.random() - 0.5;
-  });
-  console.log(numbersArray);
-  cards.forEach((card) => {
-    card.id.push(numbersArray.pop(), numbersArray.pop());
-  });
-  console.log(cards);
-};
-
 const init = () => {
+  clearInterval(intervalId);
   intervalId = setInterval(() => {
     timer--;
     render();
@@ -134,10 +122,11 @@ const init = () => {
 };
 
 const resetGame = () => {
+  messageEl.innerText = "Click the cards!";
+  matchedPairs = 0;
   timer = 91;
-  clearInterval(intervalId);
-  init();
   shuffleCards(cardsArray);
+  init();
   imagesList.forEach((card) => {
     card.src = "./assets/backofcard.png";
     card.classList.remove("disabled");
@@ -147,6 +136,28 @@ const resetGame = () => {
   buttonSound.play();
 };
 
+const shuffleCards = (cards) => {
+  const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  let j;
+  for (let i = numbersArray.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i))
+    // [numbersArray[i], numbersArray[j]] = [numbersArray[j], numbersArray[i]];
+    let temp = numbersArray[i]
+    numbersArray[i] = numbersArray[j]
+    numbersArray[j] = temp
+  }
+  console.log(numbersArray);
+  cards.forEach((card) => {
+  if (card.id.length === 0){
+    let removedIndex = Math.floor(Math.random() * numbersArray.length)
+  card.id.push(numbersArray[removedIndex]);
+  numbersArray.splice(removedIndex, 1)
+ removedIndex = Math.floor(Math.random() * numbersArray.length)
+  card.id.push(numbersArray[removedIndex]);
+  numbersArray.splice(removedIndex, 1)
+}});
+  console.log(cards)
+};
 /*----------------------------- Event Listeners -----------------------------*/
 cardsList.forEach((element) => {
   element.addEventListener("click", flipCard);
