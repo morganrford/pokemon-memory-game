@@ -89,8 +89,6 @@ const flipCard = (event) => {
 const checkForMatches = (event) => {
   console.log(flippedCards[0].src, flippedCards[1].src);
   if (flippedCards[0].src === flippedCards[1].src) {
-    // flippedCards[0].parentElement.removeEventListener("click", flipCard);
-    // flippedCards[1].parentElement.removeEventListener("click", flipCard);
     flippedCards = [];
     matchedPairs++;
   } else {
@@ -137,27 +135,20 @@ const resetGame = () => {
 };
 
 const shuffleCards = (cards) => {
-  const numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  let numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   let j;
   for (let i = numbersArray.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i))
-    // [numbersArray[i], numbersArray[j]] = [numbersArray[j], numbersArray[i]];
     let temp = numbersArray[i]
     numbersArray[i] = numbersArray[j]
     numbersArray[j] = temp
   }
-  console.log(numbersArray);
   cards.forEach((card) => {
-  if (card.id.length === 0){
-    let removedIndex = Math.floor(Math.random() * numbersArray.length)
-  card.id.push(numbersArray[removedIndex]);
-  numbersArray.splice(removedIndex, 1)
- removedIndex = Math.floor(Math.random() * numbersArray.length)
-  card.id.push(numbersArray[removedIndex]);
-  numbersArray.splice(removedIndex, 1)
-}});
-  console.log(cards)
+ card.id[0] = numbersArray.shift()
+ card.id[1] = numbersArray.pop()
+});
 };
+
 /*----------------------------- Event Listeners -----------------------------*/
 cardsList.forEach((element) => {
   element.addEventListener("click", flipCard);
